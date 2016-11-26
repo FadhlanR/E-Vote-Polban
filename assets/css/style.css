@@ -1,0 +1,170 @@
+footer {
+	margin-bottom: 20px;
+}
+
+footer p {
+	text-align: center;
+	font-size: 0.9em;
+}
+
+#clockdiv h1{
+  color: #00000;
+  font-weight: 100;
+  font-size: 30px;
+  margin: 40px 0px 20px;
+  text-align : center;
+}
+
+#clockdiv{
+	margin : 30px;
+    font-family: sans-serif;
+    font-weight: 100;
+    text-align: center;
+    font-size: 60px;
+}
+
+#clockdiv > div{
+    padding: 10px;
+    border-radius: 3px;
+    background: #C0C0C0;
+    display: inline-block;
+}
+
+#clockdiv div > span{
+    padding: 15px;
+    border-radius: 3px;
+    background: #FFFFFF;
+    display: inline-block;
+	color: #00000;
+}
+
+.smalltext{
+    padding-top: 10px;
+    text-align: center;
+	font-size: 16px;
+}
+
+.calontext{
+	background-color:#2980b9;
+	color: white;
+	font-size: 20px;
+	margin-top: 15px;
+    padding: 8px;
+}
+
+img.left{
+	position: left;
+	margin: 5px;
+	float: left;
+	width: 150px;
+	margin-right:40px;
+}
+
+.menu .btn-menu{
+	margin : 10px;
+    font-size: 20px;
+	color:white;
+}
+
+.menu {
+	margin : 0px;
+    font-family: default;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+
+.jumbotron a{
+	font-size: 20px;
+	background-color: red;
+	color: white;
+	position: center;
+}
+
+.jumbotron{
+	text-align: right;
+}
+
+.jumbotron p,
+.jumbotron h1{
+	text-align: left;
+}
+
+.number {
+	font-weight: bold;
+    border: 3px solid #666;
+    width: 285px;
+	color: #fff;
+    text-align: center;
+	background-color:black;
+    font: 20px Arial, sans-serif;
+	width: 550px;
+}
+
+img.calon{
+	position: center;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	float: center;
+	width: 40%;
+}
+
+.calon{
+    text-align: center;
+	width: 100%;
+}
+
+.calon > table{
+    padding: 0px;
+    border-radius: 0px;
+    background: #C0C0C0;
+	margin: 40px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.calon table > th{
+	padding: 0px;
+    border-radius: 0px;
+    background: #FFFFFF;
+    display: inline-block;
+	color: #00000;
+}
+
+ /* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}

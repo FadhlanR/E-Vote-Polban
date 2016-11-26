@@ -1,0 +1,32 @@
+CREATE TRIGGER `BI_calon` BEFORE INSERT ON `calon`
+ FOR EACH ROW BEGIN
+DECLARE v_count integer DEFAULT 0;
+DECLARE v_keterangan integer DEFAULT 0;
+SET v_count = (SELECT COUNT(id_calon) FROM calon WHERE id_nomor = NEW.id_nomor);
+SET v_keterangan = (SELECT COUNT(id_calon) FROM calon WHERE id_nomor = NEW.id_nomor and id_keterangan = NEW.id_keterangan);
+IF v_count >= 2 THEN
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Tidak dapat menambah calon di nomor urut tersebut';
+ELSEIF v_keterangan >= 1 THEN
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Keterangan calon sudah digunakan';
+END IF;
+END
+
+CREATE TRIGGER `BU_pemilih` BEFORE UPDATE ON `pemilih`
+ FOR EACH ROW BEGIN
+DECLARE v_nomor integer DEFAULT 0;
+SET v_nomor = (SELECT id_nomor FROM pemilih WHERE nim = NEW.nim);
+IF v_nomor IS NOT NULL AND NEW.id_nomor <> v_nomor THEN
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Suara tidak dapat diubah';
+END IF;
+END
+
+CREATE TRIGGER `BU_calon` BEFORE UPDATE ON `calon`
+ FOR EACH ROW BEGIN
+DECLARE v_jmlketerangan integer DEFAULT 0;
+DECLARE v_keterangan integer DEFAULT 0;
+SET v_jmlketerangan = (SELECT COUNT(id_calon) FROM calon WHERE id_nomor = NEW.id_nomor and id_keterangan = NEW.id_keterangan);
+SET v_keterangan = (SELECT id_keterangan FROM calon WHERE id_nomor = NEW.id_nomor LIMIT 1);
+IF v_jmlketerangan >= 1 AND NEW.id_keterangan <> v_keterangan THEN
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Keterangan calon sudah digunakan';
+END IF;
+END
